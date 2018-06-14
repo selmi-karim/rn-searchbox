@@ -2,10 +2,9 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:50 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 14:41:41
+ * @Last Modified time: 2018-06-14 14:44:22
  */
 import { filter, some, includes } from 'lodash/collection';
-
 
 const stringSearch = (input, data) => {
     if (input === '') {
@@ -15,6 +14,7 @@ const stringSearch = (input, data) => {
         return depthFirstSearch(item, input);
     });
 };
+
 
 // private function
 const depthFirstSearch = (collection, input) => {
