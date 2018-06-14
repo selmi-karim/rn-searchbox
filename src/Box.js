@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 14:47:26
+ * @Last Modified time: 2018-06-14 21:47:23
  */
 import React, { Component } from 'react'
 import {
@@ -17,59 +17,24 @@ import PropTypes from 'prop-types'
 import DisplayItems from './displayItems'
 
 export default class Box extends Component {
+
     static propTypes = {
-        data: PropTypes.array,
-        input: PropTypes.string,
-    }
+        item: PropTypes.array,
+        itemsStyles: PropTypes.object
+    } 
 
     static defaultProps = {
-        data: [],
-        input: '',
-    }
-
-    _renderElement = (item, itemsStyles) => {
-        let elements = []
-        Object.entries(item).forEach(([key, value]) => {
-            let delta = new Date().getTime()
-            if (key !== 'key')
-                elements.push(<Text  style={itemsStyles[key]} >{item[key]}</Text>)
-        })
-        if (true)
-            return elements
-        return null
-    }
-    _generateUniqueID = () => {
-        return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)+ Date.now().toString()).toUpperCase();
-    }
-    _keyExtractor = (item, index) => {
-        return index.toString(
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        )
-    }
-    _onPressItem = (item) => {
-        // updater functions are preferred for transactional updates
-        console.log('click: ' + JSON.stringify(item))
-    }
-    _renderItem = ({ item }) => {
-        return (
-            <View style={this.props.itemsStyles.flatview} >
-                {this._renderElement(item, this.props.itemsStyles)}
-            </View>)
-
-    }
+        item: [],
+        itemsStyles: {}
+    } 
+    
+    _renderItem = ({ item }) => (
+        <DisplayItems
+            key={item.key}
+            item={item}
+            itemsStyles={this.props.itemsStyles}
+        />
+    ) 
 
     /** show when no result */
     _renderEmpty = () => (
@@ -87,12 +52,12 @@ export default class Box extends Component {
                         data={this.props.data}
                         showsVerticalScrollIndicator={false}
                         renderItem={this._renderItem}
-                        keyExtractor={this._keyExtractor}
+                        keyExtractor={item => item.key}
                         ListEmptyComponent={this._renderEmpty}
-
                     />
                 </View>
             </ScrollView>
         )
     }
 }
+
