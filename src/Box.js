@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 03:41:26
+ * @Last Modified time: 2018-06-14 04:03:08
  */
 import React, { Component } from 'react';
 import {
@@ -32,42 +32,41 @@ export default class Box extends Component {
         <Text style={this.props.itemsStyles.name} >{item.name}</Text>
                                     <Text style={this.props.itemsStyles.email} >{item.name}</Text>*/
 
-        console.log('0: ' + Object.keys(item))
-        console.log('1: ' + item['name'])
-        Object.entries(item).forEach(([key, value]) => { 
-            console.log(`${key}: ${value}`);
-            return     <Text style={itemsStyles[{key}]} >{item[{key}]}</Text>
+        const elements = []
+        Object.entries(item).forEach(([key, value]) => {
+            if (key !== 'key')
+                elements.push(<Text style={itemsStyles[key]} >{item[key]}</Text>)
         });
-    if(true)
-    return(
+        if (true)
+            return (
                 <View>
-    <Text style={itemsStyles.name} >{item.name}</Text>
-    <Text style={itemsStyles.email} >{item.email}</Text>
+                    {elements}
                 </View >
             );
-return null;
+        return null;
     }
 
-render() {
-    return (
-        <ScrollView>
-            <View >
-                <FlatList
-                    data={this.props.data}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item }) => {
-                        return (
-                            <View style={this.props.itemsStyles.flatview}>
-                                {this.renderElement(item, this.props.itemsStyles)}
-                            </View>
-                        )
-                    }
-                    }
-                    keyExtractor={item => item.email}
-                />
-            </View>
-        </ScrollView>
-    );
-}
+
+    render() {
+        return (
+            <ScrollView>
+                <View >
+                    <FlatList
+                        data={this.props.data}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({ item }) => {
+                            return (
+                                <View style={this.props.itemsStyles.flatview}>
+                                    {this.renderElement(item, this.props.itemsStyles)}
+                                </View>
+                            )
+                        }
+                        }
+                        keyExtractor={(item, index) => item.key}
+                    />
+                </View>
+            </ScrollView>
+        );
+    }
 }
 
