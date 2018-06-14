@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 21:47:23
+ * @Last Modified time: 2018-06-15 00:41:59
  */
 import React, { Component } from 'react'
 import {
@@ -20,21 +20,34 @@ export default class Box extends Component {
 
     static propTypes = {
         item: PropTypes.array,
-        itemsStyles: PropTypes.object
-    } 
+        itemsStyles: PropTypes.object,
+
+    }
 
     static defaultProps = {
         item: [],
-        itemsStyles: {}
-    } 
-    
+        itemsStyles: {},
+    }
+
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick() {
+        //Alert.alert('Double Click Succeed');
+        console.log('itemClicked: ')
+        // this.props.onItemClick()
+    }
+
     _renderItem = ({ item }) => (
         <DisplayItems
             key={item.key}
             item={item}
             itemsStyles={this.props.itemsStyles}
+            onBlick={() => this.onClick()}
         />
-    ) 
+    )
 
     /** show when no result */
     _renderEmpty = () => (
