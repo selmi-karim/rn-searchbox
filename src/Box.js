@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 04:18:18
+ * @Last Modified time: 2018-06-14 04:26:47
  */
 import React, { Component } from 'react';
 import {
@@ -33,13 +33,14 @@ export default class Box extends Component {
                                     <Text style={this.props.itemsStyles.email} >{item.name}</Text>*/
 
         const elements = []
-        Object.entries(item).forEach(([key, value]) => {
+        /*Object.entries(item).forEach(([key, value]) => {
             if (key !== 'key')
                 elements.push(<Text style={itemsStyles[key]} >{item[key]}</Text>)
-        });
+        });*/
         if (true)
             return (
                 <View>
+                    <Text>sqdsqd</Text>
                     {elements}
                 </View >
             );
@@ -63,7 +64,8 @@ export default class Box extends Component {
                                 {this.renderElement(item, this.props.itemsStyles)}
                             </View>
                         }
-                    />
+                        keyExtractor={item => item.email}
+                        />
                 </View>
             </ScrollView>
         );
