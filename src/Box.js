@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 04:26:47
+ * @Last Modified time: 2018-06-14 04:39:40
  */
 import React, { Component } from 'react';
 import {
@@ -26,21 +26,14 @@ export default class Box extends Component {
     };
 
     renderElement(item, itemsStyles) {
-        //console.log('item: ' + JSON.stringify(item))
-        //console.log('itemStyles: ' + JSON.stringify(itemsStyles))
-        /*
-        <Text style={this.props.itemsStyles.name} >{item.name}</Text>
-                                    <Text style={this.props.itemsStyles.email} >{item.name}</Text>*/
-
-        const elements = []
-        /*Object.entries(item).forEach(([key, value]) => {
+        let elements = []
+        Object.entries(item).forEach(([key, value]) => {
             if (key !== 'key')
-                elements.push(<Text style={itemsStyles[key]} >{item[key]}</Text>)
-        });*/
+               elements.push(<Text key={item['key']} style={itemsStyles[key]} >{item[key]}</Text>)
+        });
         if (true)
             return (
                 <View>
-                    <Text>sqdsqd</Text>
                     {elements}
                 </View >
             );
@@ -64,8 +57,8 @@ export default class Box extends Component {
                                 {this.renderElement(item, this.props.itemsStyles)}
                             </View>
                         }
-                        keyExtractor={item => item.email}
-                        />
+                        keyExtractor={item => item.key}
+                    />
                 </View>
             </ScrollView>
         );
