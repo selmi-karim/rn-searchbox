@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-14 14:39:22 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 21:48:25
+ * @Last Modified time: 2018-06-15 00:08:53
  */
 
 import React, { Component } from "react";
@@ -11,19 +11,29 @@ import PropTypes from 'prop-types';
 
 
 export default class DisplayItems extends Component {
-    /*  static propTypes = {
-        onItemClick: PropTypes.func
+    constructor(props) {
+        super(props);
     }
-    
+    /* key={item.key}
+     item={item}
+     itemsStyles={this.props.itemsStyles}
+     onClick= {this.onClick()}*/
+    static propTypes = {
+        item: PropTypes.object,
+        itemsStyles: PropTypes.object,
+        onClick: PropTypes.func
+    }
+
     static defaultProps = {
-        onItemClick: () => Alert.alert('item Clicked'),
-    }*/
+        item: {},
+        itemsStyles: {},
+        onClick: () => { },
+    }
 
     /*
     * details 
     */
     _renderElement = (item, itemsStyles) => {
-        console.log('item: ' + item)
         let elements = []
         Object.entries(item).forEach(([key, value]) => {
             let delta = new Date().getTime()
@@ -35,14 +45,14 @@ export default class DisplayItems extends Component {
         return null
     }
     onPress = () => {
-        //this.props.onItemClick()
-        console.log('clicked');
+        console.log('pla')
+        this.props.onClick()
     }
     render() {
+        console.log('this: '+JSON.stringify(this.props))
         return (
-            <TouchableOpacity onPress={this.onPress} >
+            <TouchableOpacity onPress={this.onPress()} >
                 <View style={this.props.itemsStyles.flatview} >
-                    {this._renderElement(this.props.item, this.props.itemsStyles)}
                 </View>
             </TouchableOpacity>
         )
