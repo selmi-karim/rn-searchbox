@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-14 14:39:22 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 00:42:54
+ * @Last Modified time: 2018-06-15 00:51:28
  */
 
 import React, { Component } from "react";
@@ -21,19 +21,19 @@ export default class DisplayItems extends Component {
     static propTypes = {
         item: PropTypes.object,
         itemsStyles: PropTypes.object,
-        onClick: PropTypes.func
+        onBlick: PropTypes.func
     }
 
     static defaultProps = {
         item: {},
         itemsStyles: {},
-        onClick: () => { },
+        onBlick: () => { },
     }
 
     /*
     * details 
     */
-    _renderElement = (item, itemsStyles) => {
+    renderElement = (item, itemsStyles) => {
         let elements = []
         Object.entries(item).forEach(([key, value]) => {
             let delta = new Date().getTime()
@@ -44,15 +44,12 @@ export default class DisplayItems extends Component {
             return elements
         return null
     }
-    onPress = () => {
-        console.log('pla')
-        this.props.onClick()
-    }
+
     render() {
-        console.log('this: '+JSON.stringify(this.props))
         return (
-            <TouchableOpacity onPress={this.onPress()} >
+            <TouchableOpacity onPress={() => this.props.onBlick(this.props.item)} >
                 <View style={this.props.itemsStyles.flatview} >
+                    {this.renderElement(this.props.item, this.props.itemsStyles)}
                 </View>
             </TouchableOpacity>
         )
