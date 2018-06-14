@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 00:41:59
+ * @Last Modified time: 2018-06-15 00:54:58
  */
 import React, { Component } from 'react'
 import {
@@ -34,9 +34,9 @@ export default class Box extends Component {
         this.onClick = this.onClick.bind(this);
     }
 
-    onClick() {
+    onClick(item) {
         //Alert.alert('Double Click Succeed');
-        console.log('itemClicked: ')
+        console.log('itemClicked'+JSON.stringify(item))
         // this.props.onItemClick()
     }
 
@@ -45,7 +45,7 @@ export default class Box extends Component {
             key={item.key}
             item={item}
             itemsStyles={this.props.itemsStyles}
-            onBlick={() => this.onClick()}
+            onBlick={(item) => this.onClick(item)}
         />
     )
 
