@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 03:03:30
+ * @Last Modified time: 2018-06-14 03:15:32
  */
 import React, { Component } from 'react';
 import {
@@ -24,9 +24,19 @@ export default class Box extends Component {
         data: [],
         input: '',
     };
+    
+    renderElement(item,itemsStyles){
+        console.log('item: '+JSON.stringify(item))
+        console.log('itemStyles: '+JSON.stringify(itemsStyles))
+        /*
+        <Text style={this.props.itemsStyles.name} >{item.name}</Text>
+                                    <Text style={this.props.itemsStyles.email} >{item.name}</Text>*/
+        if(true)
+           return <Text>data</Text>;
+        return null;
+     }
 
     render() {
-        console.log('styles: ' + JSON.stringify(this.props.itemsStyles.name))
         return (
             <ScrollView>
                 <View >
@@ -34,10 +44,10 @@ export default class Box extends Component {
                         data={this.props.data}
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item }) => {
-
                             return (
                                 <View style={this.props.itemsStyles.flatview}>
-                                    <Text style={{ fontSize: 18 }} >{item.name}</Text>
+                                    { this.renderElement(item,this.props.itemsStyles) }
+                                    
                                 </View>
                             )
                         }
