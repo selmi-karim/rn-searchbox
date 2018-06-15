@@ -11,7 +11,14 @@
     "url": "git+https://github.com/karimation/rn-searchbox.git"
   },
   "keywords": [
-    "searchbox"
+    "searchbox",
+    "react-native",
+    "react",
+    "searchbar",
+    "rn-searchbar",
+    "rn-searchbox",
+    "flatlist",
+    "filter-data"
   ],
   "author": "“kerim <“selmi.kerim@gmail.com\nnpm set init.author.email “selmi.kerim@gmail.com> (“http://www.karimation.com\nnpm set init.author.url “http://www.karimation.com)",
   "license": "MIT",
