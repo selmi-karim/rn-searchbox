@@ -30,11 +30,11 @@ yarn add rn-searchbox
 
 Property	|	Type		|	Default		|	Description |
 :---------|:--------|:----------|:------------|
+onClick(item) | function | `null` | Fires after each Click and return item data.
+itemsStyles | array | `[]` | The array of styles of data to be displayed in FlatList.
 data	|	array	|	`[]`	|	The array of data to be searched
 placeholder	|	string	|	`Search`	|	The placeholder for the search bar.
 handleChangeText(input) | function | `null` | Fires when the input text changes.
-handleSearch(input) | function | `null` | Fires after `handleChangeText`, and can be used to implement a custom search. If not present, the internal search logic will be used.
-handleResults(results) | function | `null` | Fires after each internal search with the results array.
 onSubmitEditing | function | `null` | Fired after pressing 'search' on the device keyboard
 getValue | function | `null` | Returns the current value of the search bar input.
 onHide(input) | function | `null` | Fires when the search bar is hidden with the current user input.
