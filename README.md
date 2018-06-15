@@ -32,7 +32,7 @@ Property	|	Type		|	Default		|	Description |
 :---------|:--------|:----------|:------------|
 onClick(item) | function | `null` | Fires after each Click and return item data.
 itemsStyles | array | `[]` | The array of styles of data to be displayed in FlatList.
-data	|	array	|	`[]`	|	The array of data to be searched
+data	|	array	|	`[]` required*	|	The array of data to be searched
 placeholder	|	string	|	`Search`	|	The placeholder for the search bar.
 onFocus | function | `null` | Fires when the search bar receives focus.
 onBlur | function | `null` | Fires when the search bar loses focus.
