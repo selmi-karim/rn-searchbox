@@ -27,9 +27,9 @@ import SearchBox from 'rn-searchbox'
 
 
 # v1.0 TODO:
- *  Update docs for Button component
- *  Update react, react-native & other dependencies
- *  Add image/icon to the listView
+*  Update docs for Button component
+*  Update react, react-native & other dependencies
+*  Add image/icon to the listView
 
 
 # Author
