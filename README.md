@@ -29,7 +29,7 @@ import SearchBox from 'rn-searchbox'
 # v1.0 TODO:
 *  Update docs for Box component
 *  Update react, react-native & other dependencies
-*  Add image/icon to the listView
+*  Possibility to add a custom icon/image to the ListView
 
 
 # Author
