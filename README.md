@@ -1,12 +1,19 @@
 
 # rn-searchbox
 
-A simple search Bar and Box with animation for react-native.
+A simple search Bar with data filter and FlatList Component for handling bigger lists.
 Build for React Native App and works on both Android and iOS.
-* Fast, Flexible, Customizable.
+
+
 <p align="center"> 
 <img src="screenshots/test.gif" height= "500" width="350" >
 </p>
+
+# How it works
+
+* Fast, Flexible, Customizable.
+
+
 # Install
 
 ```
