@@ -3,8 +3,11 @@
 
 A simple Search Bar with FlatList Component for handling huge and large data.
 
-Build for React Native App and works on both Android and iOS.
+With simple search capability which can be utilised by handing the component data to flatlist and providing a onClick function which will receive the item selected of the data array.
 
+The search function uses a dice algorithm to traverse the data and looks for an indexOf the user input within all strings, numbers, and boolean values in the data.
+
+Build for React Native App and works on both Android and iOS.
 
 <p align="center"> 
 <img src="screenshots/test.gif" height= "500" width="350" >
@@ -26,7 +29,6 @@ yarn add rn-searchbox
 
 ```
 
-# Example code
 
 # Usage
 
@@ -43,7 +45,6 @@ export default class Example extends Component {
     render() {
         return (
             <SearchBox
-                ref={(ref) => this.searchBar = ref}
                 data={data.users}
                 showOnLoad
                 onClick={(item) => this.onClick(item)}
