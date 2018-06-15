@@ -2,9 +2,9 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:56:02 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 04:09:36
+ * @Last Modified time: 2018-06-15 16:49:38
  */
-import React, { Component } from 'react' 
+import React, { Component } from 'react'
 import {
   Platform,
   View,
@@ -12,22 +12,25 @@ import {
   TouchableOpacity,
   Animated,
   ScrollView
-} from 'react-native' 
+} from 'react-native'
 import Box from './box'
 import styles from './styles'
 import StringMatching from './stringMatching'
-import PropTypes from 'prop-types' 
-import Icon from 'react-native-vector-icons/MaterialIcons' 
-import { filter, some, includes } from 'lodash/collection' 
-import { debounce } from 'lodash/function' 
+import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { filter, some, includes } from 'lodash/collection'
+import { debounce } from 'lodash/function'
 
 const INITIAL_TOP = -60
-export default class SearchBox extends Component {
+export default class Search extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     data: PropTypes.array.isRequired,
     itemsStyles: PropTypes.object,
     placeholder: PropTypes.string,
+    handleChangeText: PropTypes.func,
+    handleSearch: PropTypes.func,
+    handleResults: PropTypes.func,
     onSubmitEditing: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -62,7 +65,7 @@ export default class SearchBox extends Component {
     fontFamily: PropTypes.string,
     allDataOnEmptySearch: PropTypes.bool,
     editable: PropTypes.bool
-  } 
+  }
 
   static defaultProps = {
     onClick: () => { },
@@ -95,10 +98,10 @@ export default class SearchBox extends Component {
     backCloseSize: 28,
     fontSize: 20,
     editable: true
-  } 
+  }
 
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {
       dataToBox: props.data,
       input: '',
@@ -106,60 +109,60 @@ export default class SearchBox extends Component {
       top: new Animated.Value(
         props.showOnLoad ? 0 : INITIAL_TOP + props.heightAdjust
       )
-    } 
+    }
   }
 
 
 
   show = () => {
-    const { animate, animationDuration, clearOnShow } = this.props 
+    const { animate, animationDuration, clearOnShow } = this.props
     if (clearOnShow) {
-      this.setState({ input: '' }) 
+      this.setState({ input: '' })
     }
-    this.setState({ show: true }) 
+    this.setState({ show: true })
     if (animate) {
       Animated.timing(this.state.top, {
         toValue: 0,
         duration: animationDuration,
         useNativeDriver: true,
-      }).start() 
+      }).start()
     } else {
-      this.setState({ top: new Animated.Value(0) }) 
+      this.setState({ top: new Animated.Value(0) })
     }
-  } 
+  }
 
 
   _handleX = () => {
-    const { onX } = this.props 
-    this._clearInput() 
-    if (onX) onX() 
-  } 
+    const { onX } = this.props
+    this._clearInput()
+    if (onX) onX()
+  }
 
   _handleBlur = () => {
-    const { onBlur, clearOnBlur } = this.props 
+    const { onBlur, clearOnBlur } = this.props
     if (onBlur) {
-      onBlur() 
+      onBlur()
     }
     if (clearOnBlur) {
-      this._clearInput() 
+      this._clearInput()
     }
-  } 
+  }
 
   _clearInput = () => {
-    this.setState({ input: '' }) 
-    this._onChangeText('') 
-  } 
+    this.setState({ input: '' })
+    this._onChangeText('')
+  }
   /** we would filter the JSON array according to given value pass as argument. 
    * After filtering data we would set the newly data in dataSource state. */
 
   _onChangeText = input => {
     //TODO add string matching algorithm 
-    const { data } = this.props 
+    const { data } = this.props
     const newData = data.filter(function (item) {
-      return StringMatching.diceSearch(input,item)
+      return StringMatching.diceSearch(input, item)
     })
-    this.setState({ input: input, dataToBox: newData }) 
-  } 
+    this.setState({ input: input, dataToBox: newData })
+  }
 
 
 
@@ -171,6 +174,7 @@ export default class SearchBox extends Component {
 
   render = () => {
     const {
+      itemsStyles,
       placeholder,
       heightAdjust,
       backgroundColor,
@@ -197,11 +201,11 @@ export default class SearchBox extends Component {
       backCloseSize,
       fontSize,
       editable
-    } = this.props 
+    } = this.props
 
 
     return (
-      <ScrollView>
+      <View>
         <Animated.View
           style={[
             styles.container,
@@ -285,12 +289,12 @@ export default class SearchBox extends Component {
         <View style={{ marginTop: 50 }}>
           <Box
             data={this.state.dataToBox}
-            itemsStyles={this.props.itemsStyles}
+            itemsStyles={itemsStyles}
             getItem={(item) => this.itemResponse(item)}
           />
         </View>
-      </ScrollView>
+      </View>
 
-    ) 
-  } 
+    )
+  }
 }
