@@ -42,7 +42,7 @@ export default class Example extends Component {
     }
     render() {
         return (
-            <Search
+            <SearchBox
                 ref={(ref) => this.searchBar = ref}
                 data={data.users}
                 showOnLoad
