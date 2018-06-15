@@ -1,5 +1,6 @@
 
 # rn-searchbox
+
 A simple search Bar and Box with animation for react-native.
 Build for React Native App and works on both Android and iOS.
 * Fast, Flexible, Customizable.
@@ -30,6 +31,7 @@ import SearchBox from 'rn-searchbox'
 *  Update docs for Box component
 *  Update react, react-native & other dependencies
 *  Possibility to add a custom icon/image to the ListView
+*  New Algorithm for String Matching
 
 
 # Author
