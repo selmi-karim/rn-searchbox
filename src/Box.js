@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:47 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 00:54:58
+ * @Last Modified time: 2018-06-15 01:04:59
  */
 import React, { Component } from 'react'
 import {
@@ -21,22 +21,25 @@ export default class Box extends Component {
     static propTypes = {
         item: PropTypes.array,
         itemsStyles: PropTypes.object,
-
+        getItem: PropTypes.func
     }
 
     static defaultProps = {
         item: [],
         itemsStyles: {},
+        getItem: () => { },
+
     }
 
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
+        this.itemSelected = this.itemSelected.bind(this);
     }
 
-    onClick(item) {
+    itemSelected(item) {
         //Alert.alert('Double Click Succeed');
-        console.log('itemClicked'+JSON.stringify(item))
+        //console.log('itemClicked'+JSON.stringify(item))
+        this.props.getItem(item)
         // this.props.onItemClick()
     }
 
@@ -45,7 +48,7 @@ export default class Box extends Component {
             key={item.key}
             item={item}
             itemsStyles={this.props.itemsStyles}
-            onBlick={(item) => this.onClick(item)}
+            onClick={(item) => this.itemSelected(item)}
         />
     )
 
