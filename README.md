@@ -1,7 +1,8 @@
 
 # rn-searchbox
 
-A simple search Bar with data filter and FlatList Component for handling bigger lists.
+A simple Search Bar with FlatList Component for handling huge and large data.
+
 Build for React Native App and works on both Android and iOS.
 
 
