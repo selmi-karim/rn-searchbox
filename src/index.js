@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:56:02 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 03:02:43
+ * @Last Modified time: 2018-06-15 01:07:10
  */
 import React, { Component } from 'react';
 import {
@@ -15,18 +15,17 @@ import {
 } from 'react-native';
 import Box from './box'
 import styles from './styles'
-import StringMatching from './StringMatching'
+import StringMatching from './stringMatching'
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { filter, some, includes } from 'lodash/collection';
 import { debounce } from 'lodash/function';
 
-const INITIAL_TOP = Platform.OS === 'ios' ? -80 : -60;
+const INITIAL_TOP = -60;
 
 export default class Search extends Component {
   static propTypes = {
     data: PropTypes.array,
-    itemsList: PropTypes.array,
     itemsStyles: PropTypes.object,
     placeholder: PropTypes.string,
     handleChangeText: PropTypes.func,
@@ -112,7 +111,7 @@ export default class Search extends Component {
     };
   }
 
-  
+
 
   show = () => {
     const { animate, animationDuration, clearOnShow } = this.props;
@@ -154,18 +153,24 @@ export default class Search extends Component {
   };
   /** we would filter the JSON array according to given value pass as argument. 
    * After filtering data we would set the newly data in dataSource state. */
-  
+
   _onChangeText = input => {
     //TODO add string matching algorithm 
     const { data } = this.props;
-    const newData = data.filter(function(item){
+    const newData = data.filter(function (item) {
       //console.log('item: '+JSON.stringify(item))
       const itemData = item.name.toUpperCase();
       const inputData = input.toUpperCase()
       return itemData.indexOf(inputData) > -1
     })
-    this.setState({ input: input,dataToBox: newData });
+    this.setState({ input: input, dataToBox: newData });
   };
+
+  itemResponse(item) {
+    //Alert.alert('Double Click Succeed');
+    console.log('itemResponse'+JSON.stringify(item))
+    // this.props.onItemClick()
+  }
 
 
   render = () => {
@@ -198,7 +203,7 @@ export default class Search extends Component {
       editable
     } = this.props;
 
-    
+
     return (
       <ScrollView>
         <Animated.View
@@ -284,8 +289,8 @@ export default class Search extends Component {
         <View style={{ marginTop: 50 }}>
           <Box
             data={this.state.dataToBox}
-            itemsList= {this.props.itemsList}
-            itemsStyles= {this.props.itemsStyles}
+            itemsStyles={this.props.itemsStyles}
+            getItem={(item) => this.itemResponse(item)}
           />
         </View>
       </ScrollView>
