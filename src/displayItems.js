@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-14 14:39:22 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 16:50:33
+ * @Last Modified time: 2018-06-15 17:00:12
  */
 
 import React, { Component } from "react" 
@@ -53,8 +53,5 @@ export default class DisplayItems extends Component {
                 </View>
             </TouchableOpacity>
         )
-
-
     }
-
 }
