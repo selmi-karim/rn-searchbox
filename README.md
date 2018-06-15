@@ -4,9 +4,9 @@
 A simple search Bar and Box with animation for react-native.
 Build for React Native App and works on both Android and iOS.
 * Fast, Flexible, Customizable.
-
-<img src="screenshots/test.gif" height= "500" width="350" align="center">
-
+<p align="center"> 
+<img src="screenshots/test.gif" height= "500" width="350" >
+</p>
 # Install
 
 ```
