@@ -31,7 +31,6 @@ export default class Example extends Component {
         Alert.alert('Item: '+JSON.stringify(item)) 
     }
     render() {
-
         return (
             <Search
                 ref={(ref) => this.searchBar = ref}
