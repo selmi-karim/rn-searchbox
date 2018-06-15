@@ -44,8 +44,6 @@ iconColor | string | `gray` | The color of the back and X icons.
 textColor | string | `gray` | The color of the search bar text.
 selectionColor | string | `lightskyblue` | The color of the the search bar cursor and text selection.
 placeholderTextColor | string | `lightgray` | The color of the placeholder text.
-animate | boolean | `true` | Animate the search bar when it is shown and hidden.
-animationDuration | number | `200` | The duration of the above animation in milliseconds.
 showOnLoad | boolean | `false` | Show the search bar when it is first rendered.
 clearOnShow | boolean | `false` | Clear input when the search bar is shown.
 clearOnHide | boolean | `true` | Clear input when the search bar is hidden.
