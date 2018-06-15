@@ -23,8 +23,7 @@
     "react-native": ">= 0.54.0"
   },
   "dependencies": {
-    "lodash.isempty": "^4.4.0",
-    "lodash.times": "^4.3.2",
+    "react-native-vector-icons": "^4.4.2",
     "prop-types": "^15.5.8"
   },
   "homepage": "https://github.com/karimation/rn-searchbox#readme"
