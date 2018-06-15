@@ -3,9 +3,9 @@
 
 A simple Search Bar with FlatList Component for handling huge and large data.
 
-With simple search capability which can be utilised by handing the component data to flatlist and providing a onClick function which will receive the item selected of the data array.
+With simple search capability which can be utilised by handing the component data to <a href="https://facebook.github.io/react-native/docs/flatlist.html">Flatlist Component</a> and providing a onClick function which will receive the item selected of the data array.
 
-The search function uses a dice algorithm to traverse the data and looks for an indexOf the user input within all strings, numbers, and boolean values in the data.
+The search function uses a  <a href="https://npmjs.com/package/dice-similarity-coeff">Dice Algorithm</a> to traverse the data and looks for an indexOf the user input within all strings, numbers, and boolean values in the data.
 
 Build for React Native App and works on both Android and iOS.
 
