@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-14 14:39:22 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 00:54:27
+ * @Last Modified time: 2018-06-15 01:04:08
  */
 
 import React, { Component } from "react";
@@ -21,13 +21,13 @@ export default class DisplayItems extends Component {
     static propTypes = {
         item: PropTypes.object,
         itemsStyles: PropTypes.object,
-        onBlick: PropTypes.func
+        onClick: PropTypes.func
     }
 
     static defaultProps = {
         item: {},
         itemsStyles: {},
-        onBlick: () => { },
+        onClick: () => { },
     }
 
     /*
@@ -47,14 +47,11 @@ export default class DisplayItems extends Component {
 
     render() {
         return (
-            <TouchableOpacity onPress={() => this.props.onBlick(this.props.item)} >
+            <TouchableOpacity onPress={() => this.props.onClick(this.props.item)} >
                 <View style={this.props.itemsStyles.flatview} >
                     {this.renderElement(this.props.item, this.props.itemsStyles)}
                 </View>
             </TouchableOpacity>
         )
-
-
     }
-
 }
