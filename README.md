@@ -25,31 +25,11 @@ import SearchBox from 'rn-searchbox'
 ```
 
 
-# Installation
-
-```bash
-
-npm install --save rn-double-click
-
-or 
-
-yarn install rn-double-click
-
-```
-
-## Usage
-
-```js
-
-import React from 'react'
-
-```
-
 
 # v1.0 TODO:
- Update docs for Button component
- Update react, react-native & other dependencies
- Add image/icon to the listView
+ *  Update docs for Button component
+ *  Update react, react-native & other dependencies
+ *  Add image/icon to the listView
 
 
 # Author
