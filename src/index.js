@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:56:02 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 02:54:14
+ * @Last Modified time: 2018-06-15 04:09:36
  */
 import React, { Component } from 'react' 
 import {
@@ -28,9 +28,6 @@ export default class SearchBox extends Component {
     data: PropTypes.array.isRequired,
     itemsStyles: PropTypes.object,
     placeholder: PropTypes.string,
-    handleChangeText: PropTypes.func,
-    handleSearch: PropTypes.func,
-    handleResults: PropTypes.func,
     onSubmitEditing: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
