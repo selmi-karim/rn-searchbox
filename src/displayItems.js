@@ -2,17 +2,17 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-14 14:39:22 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 01:18:33
+ * @Last Modified time: 2018-06-15 16:50:33
  */
 
-import React, { Component } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from "react-native";
-import PropTypes from 'prop-types';
+import React, { Component } from "react" 
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from "react-native" 
+import PropTypes from 'prop-types' 
 
 
 export default class DisplayItems extends Component {
     constructor(props) {
-        super(props);
+        super(props) 
     }
     /* key={item.key}
      item={item}
