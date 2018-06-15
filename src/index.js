@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:56:02 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 02:44:32
+ * @Last Modified time: 2018-06-15 02:54:14
  */
 import React, { Component } from 'react' 
 import {
@@ -22,7 +22,7 @@ import { filter, some, includes } from 'lodash/collection'
 import { debounce } from 'lodash/function' 
 
 const INITIAL_TOP = -60
-export default class Search extends Component {
+export default class SearchBox extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     data: PropTypes.array.isRequired,
