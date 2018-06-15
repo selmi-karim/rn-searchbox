@@ -2,7 +2,7 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:56:02 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-15 01:07:10
+ * @Last Modified time: 2018-06-15 01:15:50
  */
 import React, { Component } from 'react';
 import {
@@ -25,6 +25,7 @@ const INITIAL_TOP = -60;
 
 export default class Search extends Component {
   static propTypes = {
+    onClick: PropTypes.func,
     data: PropTypes.array,
     itemsStyles: PropTypes.object,
     placeholder: PropTypes.string,
@@ -68,6 +69,7 @@ export default class Search extends Component {
   };
 
   static defaultProps = {
+    onClick: () => { },
     data: [],
     placeholder: 'Search',
     backButtonAccessibilityLabel: 'Navigate up',
@@ -167,9 +169,7 @@ export default class Search extends Component {
   };
 
   itemResponse(item) {
-    //Alert.alert('Double Click Succeed');
-    console.log('itemResponse'+JSON.stringify(item))
-    // this.props.onItemClick()
+    this.props.onClick(item)
   }
 
 
