@@ -2,32 +2,18 @@
  * @Author: kerim selmi 
  * @Date: 2018-06-13 22:55:50 
  * @Last Modified by: kerim selmi
- * @Last Modified time: 2018-06-14 14:44:22
+ * @Last Modified time: 2018-06-15 02:42:59
  */
-import { filter, some, includes } from 'lodash/collection';
 
-const stringSearch = (input, data) => {
-    if (input === '') {
-        return allDataOnEmptySearch ? data : [];
-    }
-    return filter(data, item => {
-        return depthFirstSearch(item, input);
-    });
-};
+const diceSearch = (input, item) => {
+    let itemData =""
+    Object.entries(item).forEach(([key, value]) => {
+      itemData += value.toUpperCase() 
+    })
+    const inputData = input.replace(/\s/g,'').toUpperCase()
+  
+    return itemData.replace(/\s/g,'').indexOf(inputData) > -1
+  }
 
 
-// private function
-const depthFirstSearch = (collection, input) => {
-    // let's get recursive boi
-    let type = typeof collection;
-    // base case(s)
-    if (type === 'string' || type === 'number' || type === 'boolean') {
-        return includes(
-            collection.toString().toLowerCase(),
-            input.toString().toLowerCase()
-        );
-    }
-    return some(collection, item => this._depthFirstSearch(item, input));
-};
-
-module.exports = { stringSearch }
+module.exports = { diceSearch }
