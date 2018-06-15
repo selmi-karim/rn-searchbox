@@ -34,16 +34,10 @@ onClick(item) | function | `null` | Fires after each Click and return item data.
 itemsStyles | array | `[]` | The array of styles of data to be displayed in FlatList.
 data	|	array	|	`[]`	|	The array of data to be searched
 placeholder	|	string	|	`Search`	|	The placeholder for the search bar.
-handleChangeText(input) | function | `null` | Fires when the input text changes.
-onSubmitEditing | function | `null` | Fired after pressing 'search' on the device keyboard
-getValue | function | `null` | Returns the current value of the search bar input.
-onHide(input) | function | `null` | Fires when the search bar is hidden with the current user input.
-onX | function | `null` | Fires when the X button is pressed. Still clears the input.
 onFocus | function | `null` | Fires when the search bar receives focus.
 onBlur | function | `null` | Fires when the search bar loses focus.
 closeButton | Component | MaterialIcon | Sets the close button component.
 closeButtonAccessibilityLabel | string | `Clear search text` | Accessibility label for the close button.
-backCloseSize | number | 28 | Sets the size of back button & close button.
 heightAdjust | number | `0` | Adjust the height of the search bar.
 backgroundColor | string | `white` | The background colour of the search bar.
 iconColor | string | `gray` | The color of the back and X icons.
@@ -53,8 +47,6 @@ placeholderTextColor | string | `lightgray` | The color of the placeholder text.
 animate | boolean | `true` | Animate the search bar when it is shown and hidden.
 animationDuration | number | `200` | The duration of the above animation in milliseconds.
 showOnLoad | boolean | `false` | Show the search bar when it is first rendered.
-hideBack | boolean | `false` | Hide the back button.
-hideX | boolean | `false` | Hide the X icon which clears the input.
 clearOnShow | boolean | `false` | Clear input when the search bar is shown.
 clearOnHide | boolean | `true` | Clear input when the search bar is hidden.
 clearOnBlur | boolean | `false` | Clear input when the search bar is blurred.
